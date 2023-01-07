@@ -1,5 +1,5 @@
-import { Specification } from "../model/Specification";
-import { ISpecificationsRepository, ICreateSpecificationsDTO } from "./ISpecificationsRepository";
+import { Specification } from "../../model/Specification";
+import { ISpecificationsRepository, ICreateSpecificationsDTO } from "../ISpecificationsRepository";
 
 
 class SpecificationsRepository implements ISpecificationsRepository {
@@ -23,8 +23,10 @@ private specifications: Specification[];
     }
 
     findByName(name: string): Specification {
-        const specification = this.specifications.findIndex(specification => specification.name === name);
-    }
+        const specification = this.specifications.find(specification => specification.name === name);
+        return specification
+    };
+    
 }
 
 export { SpecificationsRepository };
