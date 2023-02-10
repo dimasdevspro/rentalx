@@ -36,7 +36,7 @@ async list(): Promise<Category[]>{
 }
 
 async findByName(name:string):Promise<Category>{
-    const category = await this.repository.findOne({name});
+    const category = await this.repository.findOne({where: {name}})
     return category
 }
 
